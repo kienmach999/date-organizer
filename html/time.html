@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>1314925</title>
+        <link rel="icon" type="image/png" href="../img/heart.png">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../sheet.css">
+    </head>
+    <body>
+        <div class="header">
+            <h1>Can i have a date with U</h1>
+            <p class="sub_titles">Kien want to invite u for a date</p>
+        </div>
+        <form class="form">
+            <div><input type="datetime-local" id="date" class="date"></div>
+            <button type="button" id="accecpt" class="button" onclick="Next()">Next</button>
+        </form>
+        <script>
+            function Next(){
+                localStorage.setItem("date", document.getElementById("date").value);
+                window.location.href = "food.html";
+            }
+        </script>
+    </body>
+</html>

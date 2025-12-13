@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>1314925</title>
+        <link rel="icon" type="image/png" href="img/heart.png">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="sheet.css">
+    </head>
+    <body>
+        <div class="header">
+            <h1>Can i have a date with U</h1>
+            <!-- <h1>Can i have a date with U</h1> -->
+            <p class="sub_titles">Kien want to invite u for a date</p>
+        </div>
+        <form class="form">
+            <button type="button" id="accept" class="button" onclick="Next()" value="Accecpted">OKIIII</button>
+            <button type="button" id="reject" class="button" value="Rejected" onclick="save_reject()">NO</button>
+        </form>
+        <script>
+            async function save_reject(){
+                localStorage.setItem("accept_reject", document.getElementById("reject").value);
+                await fetch("https://script.google.com/macros/s/AKfycbylzmfBjVt1VedKi5b9b0HC7Tf5lNtZo5IblnOL7xdfmhkNsd5nwGqJC9AWLslmetYy3g/exec", {
+                    method: "POST",
+                    body: new URLSearchParams({
+                        accept_reject: document.getElementById("reject").value,
+                    })
+                    }
+                );
+                window.location.href = "html/end2.html"
+            }
+            function Next(){
+                localStorage.setItem("accept_reject", document.getElementById("accept").value);
+                window.location.href = "html/time.html";
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>1314925</title>
+        <link rel="icon" type="image/png" href="../img/heart.png">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../sheet.css">
+    </head>
+    <body>
+        <div class="header">
+            <h1>choose the places u want to go on date</h1>
+            <p class="sub_titles">chọn ít thôi tao mạc giờ</p>
+        </div>
+        <form class="optional_form">
+            <div class="option_container">
+                <label class="option">
+                    <input type="checkbox" name="place" value="ktv" style="display: none;" class="check_box">
+                    <img src="../img/karaoke.jpg" class="option_img">
+                </label>
+                <label class="option">
+                    <input type="checkbox" name="place" value="duongsach" style="display: none;" class="check_box">
+                    <img src="../img/duongsach.jpg" class="option_img">
+                </label>
+                <label class="option">
+                    <input type="checkbox" name="place" value="rapphim" style="display: none;" class="check_box">
+                    <img src="../img/rapphim.jpg" class="option_img">
+                </label>
+                <label class="option">
+                    <input type="checkbox" name="place" value="phodibo" style="display: none;" class="check_box">
+                    <img src="../img/phodibo.jpg" class="option_img">
+                </label>
+                <label class="option">
+                    <input type="checkbox" name="place" value="cfshop" style="display: none;" class="check_box">
+                    <img src="../img/cfshop.webp" class="option_img">
+                </label>
+                <label class="option">
+                    <input type="checkbox" name="place" value="bar" style="display: none;" class="check_box">
+                    <img src="../img/bar.jpg" class="option_img">
+                </label>
+                <label class="option">
+                    <input type="checkbox" name="place" value="mall" style="display: none;" class="check_box">
+                    <img src="../img/mall.jpg" class="option_img">
+                </label>
+            </div>
+            <button type="button" id="accecpt" class="button" onclick="Next()">Next</button>
+        </form>
+        <script>
+            async function Next(){
+                const checkboxes = document.querySelectorAll('input[name="place"]:checked');
+                const selectedPlaces = Array.from(checkboxes).map(cb => cb.value);
+                await fetch("https://script.google.com/macros/s/AKfycbylzmfBjVt1VedKi5b9b0HC7Tf5lNtZo5IblnOL7xdfmhkNsd5nwGqJC9AWLslmetYy3g/exec", {
+                    method: "POST",
+                    body: new URLSearchParams({
+                        accept_reject: localStorage.getItem("accept_reject"),
+                        date: localStorage.getItem("date"),
+                        food: JSON.parse(localStorage.getItem("food")).join(" - "),
+                        place: selectedPlaces.join(" - ")
+                    })
+                    }
+                );
+                window.location.href = "end1.html";
+            }
+        </script>
+    </body>
+</html>

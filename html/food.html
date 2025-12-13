@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>1314925</title>
+        <link rel="icon" type="image/png" href="../img/heart.png">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../sheet.css">
+    </head>
+    <body>
+        <div class="header">
+            <h1>choose what u want to eat</h1>
+            <p class="sub_titles">chọn ít thôi tao mạc giờ</p>
+        </div>
+        <form class="optional_form">
+            <div class="option_container">
+                <label class="option">
+                    <input type="checkbox" name="food" value="pizza" style="display: none;" class="check_box">
+                    <img src="../img/pizza.jpg" class="option_img">
+                </label>
+                <label class="option">
+                    <input type="checkbox" name="food" value="nemnuong" style="display: none;" class="check_box">
+                    <img src="../img/nemnuong.jpg" class="option_img">
+                </label>
+                <label class="option">
+                    <input type="checkbox" name="food" value="ocnuong" style="display: none;" class="check_box">
+                    <img src="../img/ocnuong.jpg" class="option_img">
+                </label>
+                <label class="option">
+                    <input type="checkbox" name="food" value="dokki" style="display: none;" class="check_box">
+                    <img src="../img/dokki.jpeg" class="option_img">
+                </label>
+                <label class="option">
+                    <input type="checkbox" name="food" value="sushi" style="display: none;" class="check_box">
+                    <img src="../img/sushi.jpeg" class="option_img">
+                </label>
+                <label class="option">
+                    <input type="checkbox" name="food" value="trasua" style="display: none;" class="check_box">
+                    <img src="../img/trasua.jpeg" class="option_img">
+                </label>
+                <label class="option">
+                    <input type="checkbox" name="food" value="cafe" style="display: none;" class="check_box">
+                    <img src="../img/caphe.jpeg" class="option_img">
+                </label>
+            </div>
+            <button type="button" id="accecpt" class="button" onclick="Next()">Next</button>
+        </form>
+        <script>
+            function Next(){
+                const checkboxes = document.querySelectorAll('input[name="food"]:checked');
+                const selectedFoods = Array.from(checkboxes).map(cb => cb.value);
+                localStorage.setItem("food", JSON.stringify(selectedFoods));
+                window.location.href = "place.html"
+            }
+        </script>
+    </body>
+</html>
