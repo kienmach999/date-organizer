@@ -16,15 +16,8 @@
             <button type="button" id="reject" class="button" value="Rejected" onclick="save_reject()">NO</button>
         </form>
         <script>
-            async function save_reject(){
+            function save_reject(){
                 localStorage.setItem("accept_reject", document.getElementById("reject").value);
-                await fetch("https://script.google.com/macros/s/AKfycbylzmfBjVt1VedKi5b9b0HC7Tf5lNtZo5IblnOL7xdfmhkNsd5nwGqJC9AWLslmetYy3g/exec", {
-                    method: "POST",
-                    body: new URLSearchParams({
-                        accept_reject: document.getElementById("reject").value,
-                    })
-                    }
-                );
                 window.location.href = "html/end2.html"
             }
             function Next(){
