@@ -116,7 +116,6 @@ h1{
         height: 5vh;
         width: 40vh;
         font-size: 3.5vh;
-        margin-bottom: 8vh;
     }
     .date{
         height: 5vh;
@@ -133,6 +132,7 @@ h1{
     justify-content: center;
     width: 100%;
     gap: 15px;
+    margin-bottom: 8vh;
 }
 
 .option_container {
@@ -163,4 +163,8 @@ h1{
 
 .check_box:checked ~ .option_img {
     border: 5px solid rgb(245, 83, 159);
+}
+
+@media screen and (max-width: 100vh) {
+    
 }
