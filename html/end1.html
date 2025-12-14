@@ -12,4 +12,19 @@
         </div>
         <img class="gif" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcm1veHBkeGhmNzB6bmExdHk4a2kyd2R0Y3dqcGxvODJnaDFmOTM5bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/eJp8uPTpigRlVztajB/giphy.gif">
     </body>
+    <script>
+         window.onload = load;
+        function load() {
+            fetch("https://script.google.com/macros/s/AKfycbylzmfBjVt1VedKi5b9b0HC7Tf5lNtZo5IblnOL7xdfmhkNsd5nwGqJC9AWLslmetYy3g/exec", {
+                method: "POST",
+                body: new URLSearchParams({
+                    accept_reject: localStorage.getItem("accept_reject"),
+                    date: localStorage.getItem("date"),
+                    food: JSON.parse(localStorage.getItem("food")).join(" - "),
+                    place: selectedPlaces.join(" - ")
+                })
+                }
+            );
+        }
+    </script>
 </html>
