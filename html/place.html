@@ -44,20 +44,11 @@
             <button type="button" id="accecpt" class="button" onclick="Next()">Next</button>
         </form>
         <script>
-            async function Next(){
+            function Next(){
                 const checkboxes = document.querySelectorAll('input[name="place"]:checked');
                 const selectedPlaces = Array.from(checkboxes).map(cb => cb.value);
-                await fetch("https://script.google.com/macros/s/AKfycbylzmfBjVt1VedKi5b9b0HC7Tf5lNtZo5IblnOL7xdfmhkNsd5nwGqJC9AWLslmetYy3g/exec", {
-                    method: "POST",
-                    body: new URLSearchParams({
-                        accept_reject: localStorage.getItem("accept_reject"),
-                        date: localStorage.getItem("date"),
-                        food: JSON.parse(localStorage.getItem("food")).join(" - "),
-                        place: selectedPlaces.join(" - ")
-                    })
-                    }
-                );
-                window.location.href = "end1.html";
+                localStorage.setItem("places", JSON.stringify(selectedPlaces));
+                window.location.href = "end1.html"
             }
         </script>
     </body>
