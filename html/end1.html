@@ -21,7 +21,7 @@
                     accept_reject: localStorage.getItem("accept_reject"),
                     date: localStorage.getItem("date"),
                     food: JSON.parse(localStorage.getItem("food")).join(" - "),
-                    place: selectedPlaces.join(" - ")
+                    place: JSON.parse(localStorage.getItem("places")).join(" - ")
                 })
                 }
             );
